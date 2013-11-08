@@ -4,14 +4,14 @@ Stack * newStack() {
   return calloc( 1, sizeof(Stack) );
 }
 
+void emptyStack(Stack * stack) {
+  while( stack->size > 0 ) {
+    popStackNode(stack);  
+  } 
+}
+
 void deleteStack(Stack * stack) {
-  StackNode * cursor = NULL;
-  StackNode * element = NULL;
-
-  for( element = cursor = stack->first_node ; cursor != NULL; element = cursor = cursor->next_node ) {
-    free( element );
-  }
-
+  emptyStack(stack);
   free(stack);
 }
 

@@ -21,6 +21,10 @@ int main() {
 
   printf("- After the pops, sample_stack size is %d.\n", getStackSize(sample_stack));
 
+  emptyStack(sample_stack);
+
+  printf("- After emptying the stack, sample_stack size is %d.\n", getStackSize(sample_stack));
+
   deleteStack(sample_stack);
 
   return 0;
