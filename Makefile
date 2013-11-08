@@ -1,16 +1,16 @@
 all: examples
 
-clamelib: list.o
-	ar -rcs lib/clamelib.a src/clamelib/list.o
+clamelib: stack.o
+	ar -rcs lib/clamelib.a src/clamelib/stack.o
 	ranlib lib/clamelib.a
 
-list.o:
-	clang -g -O2 -Wall -Wextra -Isrc -c -o src/clamelib/list.o src/clamelib/list.c
+stack.o:
+	clang -g -O2 -Wall -Wextra -Isrc -c -o src/clamelib/stack.o src/clamelib/stack.c
 
-examples: list_example
+examples: stack_example
 
-list_example: clamelib
-	clang -g -O2 -Wall -Wextra -Isrc lib/clamelib.a examples/list_example.c -o examples/list.example
+stack_example: clamelib
+	clang -g -O2 -Wall -Wextra -Isrc lib/clamelib.a examples/stack_example.c -o examples/stack.example
 
 clean:
 	rm -f lib/* examples/*.example src/clamelib/*.o 
