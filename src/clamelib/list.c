@@ -11,6 +11,8 @@ void deleteList(List * list) {
   for( element = cursor = list->first_node ; cursor != NULL; element = cursor = cursor->next_node ) {
     free( element );
   }
+
+  free(list);
 }
 
 void pushListNode(List * list, void * data) {
@@ -22,16 +24,16 @@ void pushListNode(List * list, void * data) {
     list->first_node = new_node;
     list->last_node = new_node;
   } else {
-    list->last_node->next_node = new_node;
-    new_node->previous_node = list->last_node;
-    list->last_node = new_node;
+    new_node->next_node = list->first_node;
+    list->first_node->previous_node = new_node;
+    list->first_node = new_node;    
   }
 
   list->size++;
 }
 
 void * popListNode(List * list) {
-  ListNode * popped_node = list->last_node;
+  ListNode * popped_node = list->first_node;
 
   if( popped_node != NULL ) {
     if( list->first_node == list->last_node ) {

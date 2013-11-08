@@ -21,5 +21,7 @@ int main() {
 
   printf("- After the pops, sample_list size is %d.\n", getListSize(sample_list));
 
+  deleteList(sample_list);
+
   return 0;
 }
