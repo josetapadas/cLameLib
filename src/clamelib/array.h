@@ -27,4 +27,8 @@ static inline void * getArrayElement(Array * array, int position) {
 
   return NULL;
 }
+
+#define arrayForEach(A, E) void * (E) = (A)->elements[0]; \
+  for(int i = 0; i < (A)->length; i++, (E) = (A)->elements[i])
+
 #endif

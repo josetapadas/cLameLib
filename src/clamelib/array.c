@@ -5,7 +5,7 @@ Array * createArray(size_t initial_size) {
 
   result_array->size = initial_size;
   result_array->elements = calloc(initial_size, sizeof(void*));
-  result_array->length = 0;
+  result_array->length = (int) initial_size;
 
   return result_array;
 }
