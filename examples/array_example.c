@@ -9,7 +9,7 @@ int main() {
   setArrayElement(array, 2, "item 3");
   setArrayElement(array, 3, "item 4");
 
-  arrayForEach(array, array_element) {
+  forEachArray(array, array_element) {
     printf("- Array element: %s\n", array_element);
   }
 
